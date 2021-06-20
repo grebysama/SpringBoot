@@ -44,5 +44,19 @@ public class Connector {
 		st.close();
 		
 	}
+	
+	public void addData(String insertQuery) throws SQLException {
+		
+//		Statement st = conn.createStatement();
+//		ResultSet rs = st.executeQuery(insertQuery);
+//		while (rs.next())
+//		{
+//		    System.out.print("Column 2 returned ");
+//		    System.out.println(rs.getString(2));
+//		}
+//		rs.close();
+//		st.close();
+//		
+	}
 
 }

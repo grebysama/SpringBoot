@@ -1,24 +1,33 @@
 package pkg.beans;
 
-import java.util.Date;
-
 public class Pessoa {
 	
 	private long id;
 	private String nome;
-	private Date dataNascimento;
+	private String dataNascimento;
 	private String cpf;
 	private boolean funcionario;
 	
 	public Pessoa() {
 		
 		nome = "";
-		dataNascimento = new Date();
+		dataNascimento = "";
 		cpf = "";
 		funcionario = false;
 		
 	}
 	
+	
+	
+	public Pessoa(String nome, String dataNascimento, String cpf, boolean funcionario) {
+		this.nome = nome;
+		this.dataNascimento = "";
+		this.cpf = cpf;
+		this.funcionario = funcionario;
+	}
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -35,11 +44,11 @@ public class Pessoa {
 		this.nome = nome;
 	}
 	
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	
@@ -58,5 +67,29 @@ public class Pessoa {
 	public void setFuncionario(boolean funcionario) {
 		this.funcionario = funcionario;
 	}
+	
+	public String personToJSON() {
+		
+		return "{\"nome\":\""+this.getNome()+
+				"\",\"dataNascimento\":\""+
+				this.getDataNascimento()+
+				"\",\"cpf\":\""+
+				this.getCpf()+
+				"\",\"funcionario\":\""+
+				this.isFuncionario()+"\"}";
+		
+	}
+
+
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getId() + "|" + this.getNome();
+	}
+	
+	
+	
+	
 
 }

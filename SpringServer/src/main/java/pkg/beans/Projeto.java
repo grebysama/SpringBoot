@@ -1,5 +1,6 @@
 package pkg.beans;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Projeto {
@@ -14,6 +15,8 @@ public class Projeto {
 	private double orcamento;
 	private String risco;
 	private Pessoa gerente;
+	
+	
 	
 	public long getId() {
 		return id;
@@ -95,6 +98,102 @@ public class Projeto {
 		this.gerente = gerente;
 	}
 	
+	public String toSQLInsert() {
+		String sql = "INSERT INTO PROJETO(nome, ";
+		
+		if(dataInicio != null) {
+			
+			sql += "data_inicio, ";
+			
+		}
+		
+		if(dataPrevisao != null) {
+			
+			sql += "data_previsao, ";
+			
+		}
+		
+		if(dataFim != null) {
+			
+			sql += "data_fim, ";
+			
+		}
+		
+		if(descricao != null) {
+			
+			sql += "descricao, ";
+			
+		}
+		
+		if(status != null) {
+			
+			sql += "status, ";
+			
+		}
+		
+		if(orcamento != 0) {
+			
+			sql += "orcamento, ";
+			
+		}
+		
+		if(risco != null) {
+			
+			sql += "risco, ";
+			
+		}
+		
+		sql += "idgerente) VALUES ('"+nome+"', '";
+		
+		SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		if(dataInicio != null) {
+			
+			sql += simpleFormat.format(dataInicio) + "', '";
+			
+		}
+		
+		if(dataPrevisao != null) {
+			
+			sql += simpleFormat.format(dataPrevisao) + "', '";
+			
+		}
+		
+		if(dataFim != null) {
+			
+			sql += simpleFormat.format(dataFim) + "', '";
+			
+		}
+		
+		if(descricao != null) {
+			
+			sql += descricao+"', '";
+			
+		}
+		
+		if(status != null) {
+			
+			sql += status+"', '";
+			
+		}
+		
+		if(orcamento != 0) {
+			
+			sql += orcamento+"', '";
+			
+		}
+		
+		if(risco != null) {
+			
+			sql += risco+"', '";
+			
+		}
+		
+		sql += gerente.getId()+"')";
+			
+		
+		return sql;
+	}
 	
 	
 

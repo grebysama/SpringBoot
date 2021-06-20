@@ -1,22 +1,28 @@
 package pkg.beans;
 
-import java.util.Date;
 
 public class Pessoa {
 	
 	private long id;
 	private String nome;
-	private Date dataNascimento;
+	private String dataNascimento;
 	private String cpf;
 	private boolean funcionario;
 	
 	public Pessoa() {
 		
 		nome = "";
-		dataNascimento = new Date();
+		dataNascimento = "";
 		cpf = "";
 		funcionario = false;
 		
+	}
+	
+	public Pessoa(String nome, String dataNascimento, String cpf, boolean funcionario) {
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.cpf = cpf;
+		this.funcionario = funcionario;
 	}
 	
 	public long getId() {
@@ -35,11 +41,11 @@ public class Pessoa {
 		this.nome = nome;
 	}
 	
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	

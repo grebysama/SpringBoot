@@ -16,6 +16,7 @@ public class MainView extends JFrame implements ActionListener{
 	private JMenu menuArquivo;
 	private JMenu menuCadastro;
 	private JMenuItem menuCadastroPessoa;
+	private JMenuItem menuCadastroProjeto;
 	private JMenu menuPesquisar;
 	private JMenuItem menuArquivoFechar;
 	
@@ -32,11 +33,14 @@ public class MainView extends JFrame implements ActionListener{
 		menuArquivoFechar.addActionListener(this);
 		
 		menuCadastro = new JMenu("Cadastrar");
-		menuCadastroPessoa = new JMenuItem("Pessoa");
 		menuBar.add(menuCadastro);
+		menuCadastroPessoa = new JMenuItem("Pessoa");
 		menuCadastro.add(menuCadastroPessoa);
-		menuCadastroPessoa.addActionListener(this);
+		menuCadastroProjeto = new JMenuItem("Projeto");
+		menuCadastro.add(menuCadastroProjeto);
 		
+		menuCadastroPessoa.addActionListener(this);
+		menuCadastroProjeto.addActionListener(this);
 		
 		
 		
@@ -55,11 +59,17 @@ public class MainView extends JFrame implements ActionListener{
 		}
 		
 		if (e.getSource() == menuCadastroPessoa) {
-			PessoaPanel panel = new PessoaPanel();
+//			CadastrarPessoaPanel panel = new CadastrarPessoaPanel();
 			
-			panel.setBounds(50, 50, 400, 580);
+			this.setContentPane(new CadastrarPessoaPanel());
+			this.setVisible(true);
+		}
+		
+		if (e.getSource() == menuCadastroProjeto) {
+//			CadastrarProjetoPanel panel = new CadastrarProjetoPanel();
+			this.setContentPane(menuCadastroProjeto);
 			
-			this.setContentPane(new PessoaPanel());
+			this.setContentPane(new CadastrarProjetoPanel());
 			this.setVisible(true);
 		}
 		
